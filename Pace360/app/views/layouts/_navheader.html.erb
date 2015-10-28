@@ -1,0 +1,29 @@
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a href="<%= pages_title_path %>" class="btn btn-info btn-lg">
+        <span class="glyphicon glyphicon-off"></span> Pace 360<sup>o</sup> 
+      </a>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><a href="<%= pages_home_path %>">Home</a></li>
+        <li><a href="<%= pages_help_path %>">Help</a></li>
+        <li><a href="<%= pages_about_path %>">About</a></li>
+        <li><a href="<%= pages_contact_us_path %>">Contact</a></li>
+      </ul>
+      <% if logged_in? %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><%= link_to "Users", users_path %></li>
+          <li><%= link_to "Profile", current_user %></li>
+          <li><%= link_to "Log out", logout_path, method: "delete" %></li>
+        </ul>
+      <% else %>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="<%= signup_path %>"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+          <li><a href="<%= login_path %>"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+      <% end %>
+    </div>
+  </div>
+</nav>
